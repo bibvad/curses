@@ -12,6 +12,6 @@ for i in range(2, ws.max_row):
 with open('Юнимед.txt', 'w') as f:
     f.write(codes[:-2])
 
-print(observation['10-002'])
+#print(observation['10-002'])
 
 
