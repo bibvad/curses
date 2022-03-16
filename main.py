@@ -1,5 +1,8 @@
 import openpyxl
-filename = 'Юнимед.xlsx'
+import easygui
+
+filename = easygui.fileopenbox('Выбери файл для импорта')
+
 wb = openpyxl.load_workbook(filename)
 ws = wb['Лист1']
 
@@ -11,7 +14,8 @@ for i in range(2, ws.max_row):
     observation[ws.cell(i, 1).value] = ws.cell(i, 2).value
 
 with open(filename+'.txt', 'w') as f:
-    f.write(codes[:-2])
+    if(f.write(codes[:-2])):
+        easygui.msgbox('Экспортировано в файл: '+filename+'.txt')
 
 #print(observation['10-002'])
 
